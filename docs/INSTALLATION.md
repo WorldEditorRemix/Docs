@@ -18,10 +18,10 @@ After extracting the archive you should have exactly this structure:
 ```
 gran212.dll
 WorldEditorRemix.ini
-WorldEditorRemix_MfcDebug_v49.exe
-WorldEditorRemix_MfcDebug_v49.pdb
-WorldEditorRemix_MfcRelease_v49.exe
-WorldEditorRemix_MfcRelease_v49.pdb
+WorldEditorRemix_MfcDebug_v50.exe
+WorldEditorRemix_MfcDebug_v50.pdb
+WorldEditorRemix_MfcRelease_v50.exe
+WorldEditorRemix_MfcRelease_v50.pdb
 
 lib38\
   libcrypto-1_1.dll
@@ -81,8 +81,8 @@ Expected sub-folders under `d:\ymir work\`:
 
 | Executable | When to use |
 |---|---|
-| `WorldEditorRemix_MfcRelease_v49.exe` | Normal editing — best performance |
-| `WorldEditorRemix_MfcDebug_v49.exe` | When you need crash dumps (written to `logs\`) |
+| `WorldEditorRemix_MfcRelease_v50.exe` | Normal editing — best performance |
+| `WorldEditorRemix_MfcDebug_v50.exe` | When you need crash dumps (written to `logs\`) |
 
 The Debug build is noticeably slower on maps with heavy sphere/collision checks (e.g. `n_flame_dungeon`, `n_ice_dungeon`). Use Release for those.
 

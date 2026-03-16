@@ -32,7 +32,7 @@
 ## Performance
 
 **Editor is very slow**
-- Use `WorldEditorRemix_MfcRelease_v49.exe` for normal editing. The Debug build has significant overhead.
+- Use `WorldEditorRemix_MfcRelease_v50.exe` for normal editing. The Debug build has significant overhead.
 - On maps like `n_flame_dungeon` / `n_ice_dungeon`, the Debug build is especially slow (Known Issue #4, partially fixed in v44). Switch to Release for these.
 
 **Minimap / atlas generation is slow**

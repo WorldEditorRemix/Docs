@@ -6,7 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v49] - Latest
+## [v50] - Latest
+
+### Added
+- Migrated rendering engine from DirectX 8 to DirectX 9Ex — modern GPU compatibility, staging textures, proper DX9Ex device creation
+
+### Fixed
+- Fixed crash when moving mouse over freed object attribute instance — dangling pointer in CDynamicPool (@fixme144)
+- Fixed crash in terrain texture preview when image data is null or has unexpected BPP (@fixme145)
+- Fixed effects not rendering on Effect/Model tabs after loading a map — stale view frustum culled all particles (@fixme146)
+- Fixed particle rendering skipping all remaining particles when one was out of frustum (@fixme147)
+- Fixed object height bias lost during terrain undo/redo and terrain height editing (@fixme148)
+
+---
+
+## [v49]
 
 ### Added
 - Added Automatic Grass placement via python script
