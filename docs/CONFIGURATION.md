@@ -271,6 +271,16 @@ Calculate object IDs from a CRC of the normalised filename rather than using a r
 
 ---
 
+### Tree rotation
+
+```ini
+ENABLE_TREE_ROTATION = false
+```
+
+Enable yaw/pitch/roll rotation for tree (SpeedTree) objects. Disabled by default because non-zero rotation causes leaf billboards to stop facing the camera correctly.
+
+---
+
 ### Locale / language
 
 ```ini

@@ -8,6 +8,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [v51] - Latest
 
+### Added
+- Added `ENABLE_TREE_ROTATION` config option (default: false) — disables tree yaw/pitch/roll rotation to prevent leaf billboard glitching when rotation is non-zero
+
 ### Fixed
 - Fixed black shadowmap.dds/raw output in DX9Ex — DevIL failed to load 32-bit X8R8G8B8 BMPs produced by D3DXSaveSurfaceToFile; replaced DevIL save pipeline with pure D3DX functions (@fixme152)
 - Fixed all render target switches (shadow, minimap, character shadow, snow) failing in DX9Ex due to depth stencil / render target size-mismatch validation (@fixme152)
