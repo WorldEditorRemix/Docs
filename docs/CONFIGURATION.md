@@ -281,6 +281,16 @@ Enable yaw/pitch/roll rotation for tree (SpeedTree) objects. Disabled by default
 
 ---
 
+### Image export format
+
+```ini
+EXPORT_MAI_ATLAS_AS_PNG = true
+```
+
+Export atlas and MAI images as PNG instead of BMP. PNG produces smaller files with lossless compression. Enabled by default since v52.
+
+---
+
 ### Locale / language
 
 ```ini

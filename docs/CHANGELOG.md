@@ -6,7 +6,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v51] - Latest
+## [v52] - Latest
+
+### Added
+- Added `ENABLE_TREE_ROTATION` config option (default: false) — disables tree yaw/pitch/roll rotation to prevent leaf billboard glitching when rotation is non-zero
+- Added `EXPORT_MAI_ATLAS_AS_PNG` config option (default: true) — exports atlas and MAI images as PNG instead of BMP for smaller file size
+
+### Changed
+- Changed `MAI_IMAGE_WITHOUT_MONSTER_AREA_INFO` default from `false` to `true` — monster area info is no longer rendered on MAI images by default
+- Removed DevIL (OpenIL) dependency entirely — all image operations now use D3DX
+
+### Fixed
+- Fixed black shadowmap.dds/raw output in DX9Ex — DevIL failed to load 32-bit X8R8G8B8 BMPs produced by D3DXSaveSurfaceToFile; replaced DevIL save pipeline with pure D3DX functions (@fixme152)
+- Fixed black minimap.dds and atlas output — same DevIL 32-bit BMP failure (@fixme152)
+- Fixed all render target switches (shadow, minimap, character shadow, snow) failing in DX9Ex due to depth stencil / render target size-mismatch validation (@fixme152)
+- Fixed D3DTEXF_NONE invalid for min/mag sampler in DX9Ex, use D3DTEXF_POINT (@fixme152)
+- Fixed fopen text mode corrupting binary shadowmap.raw on Windows (@fixme152)
+- Fixed shadowmap generation only rendering objects near camera instead of all loaded areas (@fixme153)
+- Fixed SpeedTree and building objects not rendered into shadowmap when camera is too low — bypass frustum culling for shadow/minimap pass (@fixme153)
+- Fixed terrain texture preview not loading textures from pack files
+
+---
+
+## [v51]
 
 ### Added
 - Added `ENABLE_TREE_ROTATION` config option (default: false) — disables tree yaw/pitch/roll rotation to prevent leaf billboard glitching when rotation is non-zero
