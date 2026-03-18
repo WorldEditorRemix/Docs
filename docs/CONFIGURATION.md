@@ -304,10 +304,10 @@ Enable the embedded Python 3.8 interpreter. When `true`, pressing **F5** in any 
 ### Minimap / MAI snapshot options
 
 ```ini
-MAI_IMAGE_WITHOUT_MONSTER_AREA_INFO = false
+MAI_IMAGE_WITHOUT_MONSTER_AREA_INFO = true
 ```
 
-When generating the MAI image, hide monster area info overlays.
+When generating the MAI image, hide monster area info overlays. Enabled by default since v51.
 
 ```ini
 MINIMAP_EFFECT_SNAPSHOT = false
