@@ -6,7 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v50] - Latest
+## [v51] - Latest
+
+### Fixed
+- Fixed black shadowmap.dds/raw output in DX9Ex — DevIL failed to load 32-bit X8R8G8B8 BMPs produced by D3DXSaveSurfaceToFile; replaced DevIL save pipeline with pure D3DX functions (@fixme152)
+- Fixed all render target switches (shadow, minimap, character shadow, snow) failing in DX9Ex due to depth stencil / render target size-mismatch validation (@fixme152)
+- Fixed D3DTEXF_NONE invalid for min/mag sampler in DX9Ex, use D3DTEXF_POINT (@fixme152)
+- Fixed fopen text mode corrupting binary shadowmap.raw on Windows (@fixme152)
+- Fixed shadowmap generation only rendering objects near camera instead of all loaded areas (@fixme153)
+- Fixed SpeedTree and building objects not rendered into shadowmap when camera is too low — bypass frustum culling for shadow/minimap pass (@fixme153)
+
+---
+
+## [v50]
 
 ### Added
 - Migrated rendering engine from DirectX 8 to DirectX 9Ex — modern GPU compatibility, staging textures, proper DX9Ex device creation
