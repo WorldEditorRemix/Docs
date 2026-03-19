@@ -16,8 +16,8 @@ WorldEditorRemix is a drop-in replacement for `WorldEditor_en.exe`. It ships as 
 
 | File | Use |
 |---|---|
-| `WorldEditorRemix_MfcRelease_v50.exe` | Day-to-day work — fast, no overhead |
-| `WorldEditorRemix_MfcDebug_v50.exe` | Debugging sessions — generates `.dmp` crash files |
+| `WorldEditorRemix_MfcRelease_vXX.exe` | Day-to-day work — fast, no overhead |
+| `WorldEditorRemix_MfcDebug_vXX.exe` | Debugging sessions — generates `.dmp` crash files |
 
 Both are 100% English, large-address-aware, compiled with C++latest and optimised flags, and DPI-awareness disabled so they render correctly on high-DPI monitors.
 
@@ -57,12 +57,12 @@ See [CHANGELOG.md](CHANGELOG.md) for what changed in each version.
 
 ## Quick start
 
-1. Extract the release archive so that `WorldEditorRemix_MfcRelease_v50.exe` sits alongside the `lib38\` folder and `WorldEditorRemix.ini`. See [Installation](INSTALLATION.md) for the exact layout.
+1. Extract the release archive so that `WorldEditorRemix_MfcRelease_vXX.exe` sits alongside the `lib38\` folder and `WorldEditorRemix.ini`. See [Installation](INSTALLATION.md) for the exact layout.
 2. Mount your content drive. The editor expects assets at `d:\ymir work\`. The simplest way on a modern machine:
    ```
    subst d: "C:\mt2stuff"
    ```
-3. Launch `WorldEditorRemix_MfcRelease_v50.exe`.
+3. Launch `WorldEditorRemix_MfcRelease_vXX.exe`.
 4. Open or create a map via **File → Open Map**.
 5. Press **F5** at any time while a map scene is active to execute `lib38\WorldEditorRemix.py`.
 
