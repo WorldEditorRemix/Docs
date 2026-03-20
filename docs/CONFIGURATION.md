@@ -291,6 +291,16 @@ Export atlas and MAI images as PNG instead of BMP. PNG produces smaller files wi
 
 ---
 
+### Terrain preloading
+
+```ini
+PRELOAD_ALL_TERRAINS = true
+```
+
+Preload all terrains and areas into memory at map load time. Eliminates the ~54ms freeze when the camera crosses cell boundaries. Increases initial load time but removes all subsequent stutter. Auto-save on cell crossing is deferred — use Ctrl+S to save all loaded data. Enabled by default since v53.
+
+---
+
 ### Locale / language
 
 ```ini
