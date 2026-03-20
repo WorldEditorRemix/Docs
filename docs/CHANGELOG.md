@@ -12,9 +12,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added `PRELOAD_ALL_TERRAINS` config option (default: true) — preloads all terrains/areas at map load, eliminates cell-crossing freezes (54ms → 1ms)
 
 ### Changed
-- Removed unused dead code
+- SpeedTree leaf vertex buffer migrated from D3DPOOL_SYSTEMMEM to D3DPOOL_DEFAULT with consolidated per-frame refill; dropped DYNAMIC from static branch/frond VBs
+- Removed unused dead code (CDynamicVertexBuffer, Net*.cpp/h, JpegFile, CWebBrowser, CInputDevice/CInputKeyboard)
 - Removed deprecated upgrade props and dead include path from all vcxproj files
 - Migrated raw `new`/`delete` to `std::vector` and `std::unique_ptr` in DataCtrl (fixes attr map init leak)
+
+### Fixed
+- Fixed MAI minimap tile save via GetRenderTargetData instead of D3DXSaveTextureToFile on RT texture (@fixme152)
 
 ---
 
