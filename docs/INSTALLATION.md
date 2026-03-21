@@ -13,45 +13,44 @@ No installation wizard. Simply extract and run.
 
 ## Release file layout
 
-After extracting the archive you should have exactly this structure:
+### 32-bit (Win32)
 
 ```
 gran212.dll
 WorldEditorRemix.ini
-WorldEditorRemix_MfcDebug_v50.exe
-WorldEditorRemix_MfcDebug_v50.pdb
-WorldEditorRemix_MfcRelease_v50.exe
-WorldEditorRemix_MfcRelease_v50.pdb
+WorldEditorRemix_MfcDebug_v54.exe
+WorldEditorRemix_MfcDebug_v54.pdb
+WorldEditorRemix_MfcRelease_v54.exe
+WorldEditorRemix_MfcRelease_v54.pdb
 
 lib38\
-  libcrypto-1_1.dll
-  libffi-7.dll
-  libssl-1_1.dll
-  LICENSE.txt
-  pyexpat.pyd
-  python.exe
-  python3.dll
-  python38.dll
-  python38.zip
-  python38._pth
-  pythonw.exe
-  select.pyd
-  sqlite3.dll
-  unicodedata.pyd
-  vcruntime140.dll
-  winsound.pyd
-
+  python38.dll  python38.zip  ...
   WorldEditorRemix.py          ↝ your main script (edit this)
   WorldEditor_API.txt          ↝ API reference (read-only reference)
-
   WorldEditorRemixWrapper\
-    __init__.py
-    main.py
-    terrain_operations.py
-    ui.py
+    __init__.py  main.py  terrain_operations.py  ui.py
 ```
 
-> **Do not move** `lib38\` relative to the `.exe` files. The embedded Python interpreter resolves its standard library from that folder.
+### 64-bit (x64)
+
+```
+WorldEditorRemix.ini
+WorldEditorRemix_MfcDebug_x64_v54.exe
+WorldEditorRemix_MfcDebug_x64_v54.pdb
+WorldEditorRemix_MfcRelease_x64_v54.exe
+WorldEditorRemix_MfcRelease_x64_v54.pdb
+
+lib38-x64\
+  python38.dll  python38.zip  ...
+  WorldEditorRemix.py          ↝ your main script (edit this)
+  WorldEditor_API.txt          ↝ API reference (read-only reference)
+  WorldEditorRemixWrapper\
+    __init__.py  main.py  terrain_operations.py  ui.py
+```
+
+> The x64 build does **not** require `gran212.dll` — Granny2 is statically linked.
+
+> **Do not move** `lib38\` (or `lib38-x64\`) relative to the `.exe` files. The embedded Python interpreter resolves its standard library from that folder.
 
 ---
 

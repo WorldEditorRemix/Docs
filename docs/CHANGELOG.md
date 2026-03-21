@@ -6,7 +6,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v53] - Latest
+## [v54] - Latest
+
+### Added
+- **Native x64 build** — the editor now ships as both 32-bit and 64-bit executables (`_x64` suffix)
+- x64 package includes separate `lib38-x64\` with 64-bit Python 3.8 runtime
+
+### Changed
+- Replaced Miles Sound System with **miniaudio** (header-only, public domain) — eliminates `mss32.dll` dependency entirely; custom VFS routes audio I/O through pack files; separate sound/music volume via sound group
+- Removed **Crypto++** dependency — dropped Panama/HybridCrypt pack types
+- Removed **Boost** dependency — replaced with C++ standard library equivalents
+- Removed Armadillo nanomite protection markers (NANOBEGIN/NANOEND) from all source files
+- Updated SpeedTreeRT header and library to match source (fixes `SetNumWindMatrices` signature)
+
+### Fixed
+- Fixed x64 pointer truncation crashes: `SetWindowLong` → `SetWindowLongPtr`, `DWORD` pointer casts → `uintptr_t`, `GCL_HBRBACKGROUND` → `GCLP_HBRBACKGROUND`
+- Fixed `operator new(unsigned int)` → `operator new(size_t)` for x64 compatibility (Pool.h)
+- Fixed `Py_ssize_t` vs `int` mismatch in PythonLauncher for x64
+- Fixed MFC `OnTimer(UINT)` → `OnTimer(UINT_PTR)` and `ON_MESSAGE` handler signatures for x64
+- Fixed `granny_data_type_definition` struct size hardcoded as 32 bytes — now uses `sizeof()` (crashed on x64 where struct is 48 bytes)
+- Fixed LZO `UINT` vs `lzo_uint` size mismatch — `lzo1x_decompress` wrote 8 bytes into 4-byte stack variable on x64, causing stack corruption
+- Fixed toolbar bitmap handles truncated from 64-bit to 32-bit `UINT` — buttons were invisible on x64
+- Fixed `PR_FLOAT_TO_INTASM` inline assembly — guarded with `#ifdef _M_IX86`, uses C cast on x64
+- Fixed ctypes `argtypes`/`restype` in WorldEditorRemixWrapper `ui.py` for x64 Python (WNDPROC, CreateWindowExW, DefWindowProcW, etc.)
+
+---
+
+## [v53]
 
 ### Added
 - Added `PRELOAD_ALL_TERRAINS` config option (default: true) — preloads all terrains/areas at map load, eliminates cell-crossing freezes (54ms → 1ms)
