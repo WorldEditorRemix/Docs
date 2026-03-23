@@ -6,7 +6,25 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v54] - Latest
+## [v55] - Latest
+
+### Added
+- **GPU memory trimming on map close/reload** — calls `EvictManagedResources` and `SetProcessWorkingSetSize` to reclaim memory after closing a map
+
+### Changed
+- **Improved debug collision rendering** — color-coded collision types (sphere=yellow, plane=blue, cylinder=cyan, AABB=magenta, OBB=yellow) with solid rendering by default, wireframe only when the wireframe toggle is active
+- Granny2 wrapper cleanup: removed dead code and legacy comment markers across 15 EterGrnLib source files (288 lines removed)
+- Granny2 wrapper modernization: replaced raw `new[]`/`delete[]` arrays with `std::vector` in Model, Mesh, and Thing classes
+- Removed duplicate Python wrapper directory — `lib38` is now the single source for wrapper scripts
+
+### Fixed
+- **Fixed height brush moving objects underground** — `RefreshObjectHeight` and terrain undo were applying `m_fHeightBias` twice, causing objects to sink below terrain level after brush edits (@fixme148)
+- Fixed duplicate `GrannyProductMinorVersion==11` check in `ModelInstanceUpdate.cpp` (copy-paste typo)
+- Fixed hardcoded 16-bit index buffers — models with >65535 total vertices now automatically use 32-bit index buffers (`D3DFMT_INDEX32`) to prevent silent mesh corruption
+
+---
+
+## [v54]
 
 ### Added
 - **Native x64 build** — the editor now ships as both 32-bit and 64-bit executables (`_x64` suffix)

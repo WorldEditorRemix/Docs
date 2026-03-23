@@ -18,10 +18,10 @@ No installation wizard. Simply extract and run.
 ```
 gran212.dll
 WorldEditorRemix.ini
-WorldEditorRemix_MfcDebug_v54.exe
-WorldEditorRemix_MfcDebug_v54.pdb
-WorldEditorRemix_MfcRelease_v54.exe
-WorldEditorRemix_MfcRelease_v54.pdb
+WorldEditorRemix_MfcDebug_v55.exe
+WorldEditorRemix_MfcDebug_v55.pdb
+WorldEditorRemix_MfcRelease_v55.exe
+WorldEditorRemix_MfcRelease_v55.pdb
 
 lib38\
   python38.dll  python38.zip  ...
@@ -35,10 +35,10 @@ lib38\
 
 ```
 WorldEditorRemix.ini
-WorldEditorRemix_MfcDebug_x64_v54.exe
-WorldEditorRemix_MfcDebug_x64_v54.pdb
-WorldEditorRemix_MfcRelease_x64_v54.exe
-WorldEditorRemix_MfcRelease_x64_v54.pdb
+WorldEditorRemix_MfcDebug_x64_v55.exe
+WorldEditorRemix_MfcDebug_x64_v55.pdb
+WorldEditorRemix_MfcRelease_x64_v55.exe
+WorldEditorRemix_MfcRelease_x64_v55.pdb
 
 lib38-x64\
   python38.dll  python38.zip  ...
@@ -80,8 +80,8 @@ Expected sub-folders under `d:\ymir work\`:
 
 | Executable | When to use |
 |---|---|
-| `WorldEditorRemix_MfcRelease_v50.exe` | Normal editing — best performance |
-| `WorldEditorRemix_MfcDebug_v50.exe` | When you need crash dumps (written to `logs\`) |
+| `WorldEditorRemix_MfcRelease_v55.exe` | Normal editing — best performance |
+| `WorldEditorRemix_MfcDebug_v55.exe` | When you need crash dumps (written to `logs\`) |
 
 The Debug build is noticeably slower on maps with heavy sphere/collision checks (e.g. `n_flame_dungeon`, `n_ice_dungeon`). Use Release for those.
 
