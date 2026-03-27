@@ -6,7 +6,24 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v55] - Latest
+## [v56] - Latest
+
+### Added
+- **Color-coded attr overlay** — block=red, water=blue, banpk=green with additive blending for overlapping attrs. Configurable via `ENABLE_MAP_ATTR_COLORED` (default: true)
+- **minimap.dds included in map export** — per-area minimap files are now copied during the Export Map feature
+- `DrawHeightBrush` Python API: optional `refreshObjectHeight` parameter (7th argument, default false) to update object heights after script-driven terrain edits
+
+### Changed
+- 32-bit index format now detected via `GrannyGetMeshBytesPerIndex()` instead of vertex count heuristic
+
+### Fixed
+- **Fixed stale collision instances persisting across map loads** — `CGraphicObjectInstance::Clear()` now calls `ClearCollision()` (@fixme154)
+- **Fixed attr overlay not refreshing when moving across cells** — added `OnPostAssignTerrainPtr` hook to regenerate attr splats after terrain reassignment (@fixme155)
+- Fixed `CGraphicIndexBuffer::Create` buffer size for `D3DFMT_INDEX32` — was hardcoded to `sizeof(WORD)`, causing heap overflow crash on high-poly x64 models
+
+---
+
+## [v55]
 
 ### Added
 - **GPU memory trimming on map close/reload** — calls `EvictManagedResources` and `SetProcessWorkingSetSize` to reclaim memory after closing a map
