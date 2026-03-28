@@ -228,7 +228,7 @@ WorldEditor.SetDrawOnlyOnBlankTile(enabled: int) -> None
 ## Terrain — Height brush
 
 ```python
-WorldEditor.DrawHeightBrush(x: float, y: float, brushShape: int, brushType: int, brushSize: int, brushStrength: int) -> None
+WorldEditor.DrawHeightBrush(x: float, y: float, brushShape: int, brushType: int, brushSize: int, brushStrength: int, refreshObjectHeight: bool = False) -> None
 WorldEditor.SetBrushShape(shape: int) -> None
 WorldEditor.GetBrushShape() -> int
 WorldEditor.SetBrushType(type: int) -> None
@@ -359,6 +359,18 @@ WorldEditor.PlaceGrassPropsByTexture(textureIds: list, grassCrcs: list, minDista
 ```
 Scatter objects (by CRC list) over tiles matching `textureIds`. Returns `(inserted, skipped)`.
 
+```python
+WorldEditor.GetObjectHeightBias(index: int) -> float
+WorldEditor.SetObjectHeightBias(index: int, bias: float) -> None
+```
+Get/set the height bias (vertical offset from terrain) for the object at `index` in the current edit area.
+
+```python
+WorldEditor.GetObjectRotation(index: int) -> (float, float, float)
+WorldEditor.SetObjectRotation(index: int, yaw: float, pitch: float, roll: float) -> None
+```
+Get/set rotation (yaw, pitch, roll in degrees) for the object at `index`.
+
 ---
 
 ## Objects — Copy/Paste
@@ -445,6 +457,15 @@ WorldEditor.ArrangeTerrainHeight() -> None
 WorldEditor.SetTerrainModified() -> None
 WorldEditor.RefreshAllTerrainAttrs() -> int
 ```
+
+---
+
+## Memory Management
+
+```python
+WorldEditor.TrimMemory() -> None
+```
+Reclaim GPU and process memory by calling `EvictManagedResources` and trimming the working set. Useful after closing or reloading maps.
 
 ---
 
