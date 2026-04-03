@@ -6,7 +6,25 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v56] - Latest
+## [v57] - Latest
+
+### Added
+- **Tree Out checkbox** — toggle SpeedTree visibility independently from objects; also hides trees from shadow map and minimap (F6)
+- **Effect Out checkbox** — toggle effect rendering (area + global) independently
+- **Ambience Out checkbox** — toggle ambience sphere rendering and audio playback independently; stops already-playing sounds when unchecked
+- New Python API: `GetObjectHeightBias`, `SetObjectHeightBias`, `GetObjectRotation`, `SetObjectRotation`, `TrimMemory`
+- 74 new regression tests (109 total) covering export helpers, attr color mapping, path normalization, and INI parsing
+
+### Changed
+- Renamed all "Output" checkboxes to "Out" for consistency (Char Out, Object Out, etc.)
+- API documentation consolidated: `API_REFERENCE.md` replaces `WorldEditor_API.txt` as the single source shipped in packages
+- Dropped Granny 2.4/2.7/2.8/2.9 version guards — only 2.11+ code path remains (~70 lines removed)
+- Replaced last raw `new[]`/`delete[]` array (`m_meshMatrices`) with `std::vector`
+- Deleted implicit copy constructors on `CGrannyModel` and `CGrannyMesh` (move-only)
+
+---
+
+## [v56]
 
 ### Added
 - **Color-coded attr overlay** — block=red, water=blue, banpk=green with additive blending for overlapping attrs. Configurable via `ENABLE_MAP_ATTR_COLORED` (default: true)
