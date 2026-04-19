@@ -6,7 +6,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v57] - Latest
+## [v58] - Latest
+
+### Changed
+- Maps can now be loaded from any directory — internal path buffers upgraded to `MAX_PATH`
+- All file dialogs are now resizable (`OFN_ENABLESIZING`)
+- Process active code page is now UTF-8 via the application manifest (supports Unicode paths)
+
+### Fixed
+- **Fixed distant terrain z-fighting** — now requires a 24-bit depth buffer on device creation
+- **Fixed `SetAllWaterHeight`** — no longer skips terrains outside the 3×3 grid around the camera (@fixme157)
+- **Fixed PNT2 vertex stride** — broken geometry in multi-mesh dungeon blocks is gone
+- **Fixed file dialogs changing the working directory** — `OFN_NOCHANGEDIR` added to every dialog that was missing it, including the save-model-script path (@fixme156)
+- Fixed atlas, minimap, export and MapID lookup producing malformed paths or failing silently when the map was loaded from an absolute path
+
+---
+
+## [v57]
 
 ### Added
 - **Tree Out checkbox** — toggle SpeedTree visibility independently from objects; also hides trees from shadow map and minimap (F6)
