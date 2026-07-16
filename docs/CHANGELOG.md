@@ -6,7 +6,36 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v58] - Latest
+## [v59] - Latest
+
+### Added
+- **Discrete GPU auto-selection on hybrid laptops** — exports `NvOptimusEnablement` and `AmdPowerXpressRequestHighPerformance` so NVIDIA Optimus / AMD PowerXpress drivers pick the high-performance GPU at process start
+- New Python API: `GenerateServerAttr` — builds `server_attr` directly from `attr.atr` files on disk, no need to load the map in the editor
+- New batch tool: `BatchGenerateServerAttr` in `terrain_operations.py` — scans a maps directory, parses each `Setting.txt` for MapSize, and generates `server_attr` per map with progress logging
+
+### Changed
+- Viewport near plane tuned from 100 to 50 — nearby objects no longer vanish when the camera gets close
+- Save dialogs (model script, Fly/Env/Collision) now open in the loaded resource's folder instead of the last visited directory
+- Sound file bytes are now cached after first load, restoring Miles' load-once behavior
+- Dynamic vertex buffers now lock with DISCARD, reducing GPU stalls during rendering
+- Faster fallback conversion path for non-DXT DDS textures
+
+### Fixed
+- **Fixed mouse picking misalignment** — the picking projection now matches the render frustum, so selection is accurate across the whole viewport
+- **Fixed objects and trees popping in/out at screen edges** — the frustum culling sphere now encloses the far corners and converts FOV to radians; trees no longer shrink their culling sphere by 10%
+- **Fixed device-loss recovery** — alt-tab/lock-screen/driver-reset paths hardened with D3D9Ex device-state codes and proper `PresentEx` result handling
+- **Fixed character shadow when MSAA is enabled** — restored the non-MSAA depth surface for the shadow map
+- Fixed 3D positional audio: swapped left/right channels and volume pumping/pulsing on 3D sounds; spatializer replaced with a Miles-style 2D positional model
+- Fixed looping ambience sounds continuing to play after switching maps
+- Fixed animation crash on zero-length update step (division by zero)
+- Fixed crash when SpeedTree vertex/index buffer creation fails — tree loading now degrades gracefully
+- Fixed crash when updating an attaching object with no model loaded
+- Fixed stale model-script/motion paths leaking into Save dialogs when loading a bare GR2 or resetting the model accessor
+- Fixed x64 pointer truncations in the IME candidate list, font face enumeration, hyperlink control, docking placeholder test, and terrain light version token
+
+---
+
+## [v58]
 
 ### Changed
 - Maps can now be loaded from any directory — internal path buffers upgraded to `MAX_PATH`
