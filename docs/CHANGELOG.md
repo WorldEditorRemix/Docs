@@ -6,7 +6,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v59] - Latest
+## [v60] - Latest
+
+### Changed
+- **Renderer ported from Direct3D 9Ex to Direct3D 11** — the editor now runs entirely on D3D11. Visuals are pixel-identical to v59 (verified with an automated image-diff harness across terrain, water, sky, trees, objects, effects, overlays and the minimap/shadowmap/atlas exports) and performance is on par. Requires a DX11-capable GPU (feature level 11_0, roughly 2010+); on Windows 8 and newer a software fallback (WARP) keeps the editor working without one
+- Ambience sphere ranges draw as a wireframe instead of faint dots (D3D11 has no point fill mode)
+- 16-bit texture fallbacks for ancient pre-DXT graphics adapters removed
+
+### Added
+- Headless automation switches for scripted runs, screenshots and exports: `--map`, `--target`, `--cam`, `--flags`, `--view`, `--file`, `--regen`, `--atlas`, `--size`, `--shot`, `--shot-frames`, `--quit`
+
+### Fixed
+- Editor now starts in windowed mode when the 800×600 display mode is missing (e.g. Remote Desktop sessions)
+- Fixed crash on map load when a textureset entry points to a missing or broken texture
+- Fixed crashes and resource leaks on editor exit
+- Fixed the object property preview panes presenting without ending the scene
+- Fixed terrain splat/shadow streams, debug meshes and attr/marked overlays changing GPU state behind the state manager's back
+- GPU device removal (driver crash or reset) is now reported with a message instead of silently rendering nothing
+
+---
+
+## [v59]
 
 ### Added
 - **Discrete GPU auto-selection on hybrid laptops** — exports `NvOptimusEnablement` and `AmdPowerXpressRequestHighPerformance` so NVIDIA Optimus / AMD PowerXpress drivers pick the high-performance GPU at process start
